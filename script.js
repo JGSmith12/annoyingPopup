@@ -2,6 +2,8 @@ const modal = document.getElementById("modal");
 const modalCloseBtn = document.getElementById("modal-close-btn");
 const consentForm = document.getElementById("consent-form");
 const modalText = document.getElementById("modal-text");
+const declineBtn = document.getElementById("decline-btn");
+const modalChoiceBtns = document.getElementById("modal-choice-btns");
 
 setTimeout(function () {
   modal.style.display = "inline";
@@ -29,10 +31,15 @@ consentForm.addEventListener("submit", function (e) {
   setTimeout(function () {
     document.getElementById(
       "modal-inner"
-    ).innerHTML = `<h2>Thanks <span class="modal-display-name">${userName}</span> you sucker!</h2>
+    ).innerHTML = `<h2>Thanks <span class="modal-display-name">${userName}</span>, you sucker!</h2>
     <p>We just sold the rights to your eternal soul.</p>
     <div class="idiot-gif">
         <img src="images/pirate.gif">
     </div>`;
+    modalCloseBtn.disabled = false;
   }, 3000);
+});
+
+declineBtn.addEventListener("mouseover", function () {
+  modalChoiceBtns.classList.toggle("reverse");
 });
